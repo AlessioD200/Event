@@ -80,3 +80,24 @@ body {
 .submit-button:hover {
     background-color: #0056b3;
 }
+
+.submit-button.loading {
+    background-color: #66b3ff;
+    cursor: not-allowed;
+}
+
+.status-message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.status-message.success {
+    color: green;
+}
+
+.status-message.error {
+    color: red;
+}
+
