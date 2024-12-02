@@ -18,7 +18,7 @@ def submit_form():
             return jsonify({"status": "error", "message": "Alle velden moeten worden ingevuld!"})
 
         # Open the Excel file
-        file_path = "formdata.xlsx"
+        file_path = "Excel/formdata.xlsx"
         if os.path.exists(file_path):
             wb = load_workbook(file_path)
         else:
