@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify
 from openpyxl import Workbook, load_workbook
 import os
+from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
+
+# Enable CORS for all routes (you can restrict this to certain origins if needed)
+CORS(app)
 
 # Route for receiving form data
 @app.route('/submit', methods=['POST'])
