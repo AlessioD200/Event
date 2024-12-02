@@ -13,9 +13,16 @@ def submit_form():
         email = request.form.get('email')
         subject = request.form.get('subject')
 
+<<<<<<< HEAD
+    # Open het Excel-bestand
+    file_path = "Excel/formdata.xlsx"  # Geef het pad naar je Excel-bestand
+    wb = load_workbook(file_path)
+    sheet = wb.active
+=======
         # Check if form fields are not empty
         if not name or not email or not subject:
             return jsonify({"status": "error", "message": "Alle velden moeten worden ingevuld!"})
+>>>>>>> e69c1d0fb9200503ae431ab17b411c931a12e749
 
         # Open the Excel file
         file_path = "formdata.xlsx"
