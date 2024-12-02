@@ -79,87 +79,36 @@ body {
     background-color: #0056b3;
 }
 
-/* Modal container */
-.modal {
+.success-box, .error-box {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
     z-index: 1000;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Hide modal by default */
-.hidden {
     opacity: 0;
-    visibility: hidden;
+    transition: top 0.5s ease, opacity 0.5s ease;
 }
 
-/* Modal content */
-.modal-content {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s ease-out;
+.success-box {
+    background-color: #4CAF50;
+    color: white;
 }
 
-/* Checkmark circle */
-.checkmark-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: #28a745; /* Green background */
-    margin: 0 auto 20px;
-    position: relative;
+.error-box {
+    background-color: #F44336;
+    color: white;
 }
 
-/* Checkmark animation */
-.checkmark {
-    position: absolute;
-    width: 40px;
-    height: 20px;
-    border-bottom: 4px solid white;
-    border-right: 4px solid white;
-    transform: rotate(45deg);
-    top: 24px;
-    left: 19px;
-    animation: draw 0.5s ease forwards;
+.success-box.slide-in, .error-box.slide-in {
+    top: 20px;
+    opacity: 1;
 }
 
-/* Success text */
-.success-text {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Animations */
-@keyframes draw {
-    from {
-        width: 0;
-        height: 0;
-    }
-    to {
-        width: 40px;
-        height: 20px;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.hidden {
+    display: none;
 }
 

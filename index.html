@@ -19,27 +19,28 @@
             <input type="email" id="email" name="email" placeholder="Je e-mailadres" required>
         </div>
         <div class="form-group">
-            <label for="subject">Personen</label>
+            <label for="subject">Personen:</label>
             <input type="text" id="subject" name="subject" placeholder="Aantal personen" required>
         </div>
         <button type="submit" class="submit-button">Send Message</button>
     </form>
 </div>
 
-<!-- Success Modal -->
-<div id="success-modal" class="modal hidden">
-    <div class="modal-content">
-        <div class="checkmark-circle">
-            <div class="checkmark"></div>
-        </div>
-        <p class="success-text">Je gegevens zijn succesvol opgeslagen!</p>
-    </div>
+<!-- Success Box -->
+<div id="success-box" class="success-box hidden">
+    <p class="success-message">Je gegevens zijn succesvol opgeslagen!</p>
 </div>
 
 <script>
-    // JavaScript code here
     const form = document.getElementById('modern-form');
-    const successModal = document.getElementById('success-modal');
+    const successBox = document.getElementById('success-box');
+
+    // Create error box dynamically
+    const errorBox = document.createElement('div');
+    errorBox.id = 'error-box';
+    errorBox.className = 'hidden error-box';
+    errorBox.innerHTML = '<p class="error-message">Er is een fout opgetreden tijdens het verzenden van gegevens.</p>';
+    document.body.appendChild(errorBox);
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault(); // Prevent page reload
@@ -62,23 +63,25 @@
             const result = await response.json();
 
             if (result.status === 'success') {
-                // Show success modal
-                successModal.classList.remove('hidden');
+                // Show success box
+                successBox.classList.remove('hidden');
+                successBox.classList.add('slide-in');
 
-                // Hide modal after 3 seconds
+                // Hide success box after 3 seconds
                 setTimeout(() => {
-                    successModal.classList.add('hidden');
+                    successBox.classList.remove('slide-in');
+                    successBox.classList.add('hidden');
                 }, 3000);
 
                 // Reset the form
                 form.reset();
             } else {
-                // Handle server-side errors
-                alert('Er ging iets mis: ' + result.message);
+                // Show error box with server-side message
+                showError(result.message);
             }
         } catch (error) {
-            // Handle client-side or network errors
-            alert('Er is een fout opgetreden tijdens het verzenden van gegevens.');
+            // Show error box for client-side or network errors
+            showError('Er is een fout opgetreden tijdens het verzenden van gegevens.');
             console.error('Fetch error:', error);
         } finally {
             // Reset the button state
@@ -86,6 +89,19 @@
             submitButton.disabled = false;
         }
     });
+
+    function showError(message) {
+        errorBox.querySelector('.error-message').textContent = message;
+        errorBox.classList.remove('hidden');
+        errorBox.classList.add('slide-in');
+
+        // Hide error box after 3 seconds
+        setTimeout(() => {
+            errorBox.classList.remove('slide-in');
+            errorBox.classList.add('hidden');
+        }, 3000);
+    }
+
 </script>
 </body>
 </html>
