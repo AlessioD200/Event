@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plannen</title>
     <link rel="stylesheet" href="Styles/styles.css">
 </head>
@@ -21,13 +22,12 @@
             <label for="subject">Personen</label>
             <input type="text" id="subject" name="subject" placeholder="Aantal personen" required>
         </div>
-
         <button type="submit" class="submit-button">Send Message</button>
     </form>
 </div>
 
 <!-- Success Modal -->
-<div id="success-modal" class="success-modal hidden">
+<div id="success-modal" class="modal hidden">
     <div class="modal-content">
         <div class="checkmark-circle">
             <div class="checkmark"></div>
@@ -37,41 +37,54 @@
 </div>
 
 <script>
+    // JavaScript code here
     const form = document.getElementById('modern-form');
-    const submitButton = document.querySelector('.submit-button');
     const successModal = document.getElementById('success-modal');
 
     form.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent page reload on submit
-        submitButton.disabled = true; // Disable the button
-        submitButton.textContent = 'Sending...'; // Show sending state
+        e.preventDefault(); // Prevent page reload
 
-        // Send form data via Fetch API
+        // Show "Sending..." animation on the button
+        const submitButton = e.target.querySelector('.submit-button');
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        // Gather form data
         const formData = new FormData(form);
+
         try {
+            // Send data to the server
             const response = await fetch('http://localhost:5000/submit', {
                 method: 'POST',
                 body: formData,
             });
 
             const result = await response.json();
+
             if (result.status === 'success') {
-                // Show the success modal
+                // Show success modal
                 successModal.classList.remove('hidden');
-                // Automatically hide the modal after 3 seconds
+
+                // Hide modal after 3 seconds
                 setTimeout(() => {
                     successModal.classList.add('hidden');
                 }, 3000);
+
+                // Reset the form
+                form.reset();
             } else {
+                // Handle server-side errors
                 alert('Er ging iets mis: ' + result.message);
             }
         } catch (error) {
+            // Handle client-side or network errors
             alert('Er is een fout opgetreden tijdens het verzenden van gegevens.');
+            console.error('Fetch error:', error);
+        } finally {
+            // Reset the button state
+            submitButton.textContent = 'Send Message';
+            submitButton.disabled = false;
         }
-
-        // Reset button state
-        submitButton.disabled = false;
-        submitButton.textContent = 'Send Message';
     });
 </script>
 </body>
