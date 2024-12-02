@@ -1,83 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Plannen</title>
-  <link rel="stylesheet" href="Styles/styles.css">
+    <meta charset="UTF-8">
+    <title>Plannen</title>
+    <link rel="stylesheet" href="Styles/styles.css">
 </head>
 <body>
 <div class="form-wrapper">
-  <form id="modern-form" class="modern-form">
-<<<<<<< HEAD
-    <form action="http://127.0.0.1:5000/submit" method="POST" class="modern-form">
-      <h2>Vul je gegevens in</h2>
-      <div class="form-group">
-          <label for="name">Naam:</label>
-          <input type="text" id="name" name="name" placeholder="Je naam" required>
-      </div>
-      <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" placeholder="Je e-mailadres" required>
-      </div>
-      <div class="form-group">
-          <label for="subject">Personen</label>
-          <input type="text" id="subject" name="subject" placeholder="Aantal personen" required>
-      </div>
-      <button type="submit" class="submit-button">Send Message</button>
-=======
-    <h2>Vul je gegevens in</h2>
-    <div class="form-group">
-      <label for="name">Naam:</label>
-      <input type="text" id="name" name="name" placeholder="Je naam" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Je e-mailadres" required>
-    </div>
-    <div class="form-group">
-      <label for="subject">Personen</label>
-      <input type="text" id="subject" name="subject" placeholder="Aantal personen" required>
-    </div>
+    <form id="modern-form" class="modern-form">
+        <h2>Vul je gegevens in</h2>
+        <div class="form-group">
+            <label for="name">Naam:</label>
+            <input type="text" id="name" name="name" placeholder="Je naam" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Je e-mailadres" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Personen</label>
+            <input type="text" id="subject" name="subject" placeholder="Aantal personen" required>
+        </div>
 
-    <button type="submit" class="submit-button">Send Message</button>
-    <div id="status-message" class="status-message"></div>
->>>>>>> e69c1d0fb9200503ae431ab17b411c931a12e749
-  </form>
-  
+        <button type="submit" class="submit-button">Send Message</button>
+        <div id="status-message" class="status-message"></div>
+    </form>
+</div>
 
 <script>
-  const form = document.getElementById('modern-form');
-  const submitButton = document.querySelector('.submit-button');
-  const statusMessage = document.getElementById('status-message');
+    const form = document.getElementById('modern-form');
+    const submitButton = document.querySelector('.submit-button');
+    const statusMessage = document.getElementById('status-message');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitButton.disabled = true;
-    submitButton.innerHTML = 'Sending...';
-    submitButton.classList.add('loading');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent page reload on submit
+        submitButton.disabled = true; // Disable the button to prevent multiple clicks
+        submitButton.innerHTML = 'Sending...'; // Change button text to "Sending..."
+        submitButton.classList.add('loading'); // Add loading animation
 
-    const formData = new FormData(form);
-    const response = await fetch('http://localhost:5000/submit', {
-      method: 'POST',
-      body: formData,
+        // Send form data via Fetch API
+        const formData = new FormData(form);
+        const response = await fetch('http://localhost:5000/submit', {
+            method: 'POST',
+            body: formData,
+        });
+
+        const result = await response.json();
+
+        // Show success or error message
+        if (result.status === 'success') {
+            statusMessage.textContent = 'Je gegevens zijn succesvol opgeslagen!';
+            statusMessage.classList.add('success');
+        } else {
+            statusMessage.textContent = 'Er ging iets mis: ' + result.message;
+            statusMessage.classList.add('error');
+        }
+
+        // Reset button state
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Send Message'; // Reset button text
+        submitButton.classList.remove('loading'); // Remove loading animation
     });
-
-    const result = await response.json();
-
-    // Show success or error message
-    if (result.status === 'success') {
-      statusMessage.textContent = 'Je gegevens zijn succesvol opgeslagen!';
-      statusMessage.classList.add('success');
-    } else {
-      statusMessage.textContent = 'Er ging iets mis: ' + result.message;
-      statusMessage.classList.add('error');
-    }
-
-    // Reset button state
-    submitButton.disabled = false;
-    submitButton.innerHTML = 'Send Message'; // Reset button text
-    submitButton.classList.remove('loading'); // Remove loading animation
-  });
 </script>
 
 </body>
