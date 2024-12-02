@@ -33,12 +33,11 @@
   const statusMessage = document.getElementById('status-message');
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent page reload on submit
-    submitButton.disabled = true; // Disable the button to prevent multiple clicks
-    submitButton.innerHTML = 'Sending...'; // Change button text to "Sending..."
-    submitButton.classList.add('loading'); // Add loading animation
+    e.preventDefault();
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'Sending...';
+    submitButton.classList.add('loading');
 
-    // Send form data via Fetch API
     const formData = new FormData(form);
     const response = await fetch('http://localhost:5000/submit', {
       method: 'POST',

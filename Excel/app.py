@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/submit', methods=['POST'])
 def submit_form():
     try:
-        # Get form data
+
         name = request.form.get('name')
         email = request.form.get('email')
         subject = request.form.get('subject')
