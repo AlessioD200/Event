@@ -6,9 +6,8 @@
     <link rel="stylesheet" href="Styles/styles.css">
 </head>
 <body>
-
 <div class="form-wrapper">
-  <form action="#" method="POST" class="modern-form">
+  <form id="modern-form" class="modern-form">
     <h2>Vul je gegevens in</h2>
     <div class="form-group">
       <label for="name">Naam:</label>
@@ -20,11 +19,33 @@
     </div>
     <div class="form-group">
       <label for="subject">Personen</label>
-      <input type="number" id="subject" name="subject" placeholder="Aantal personen" required>
+      <input type="text" id="subject" name="subject" placeholder="Aantal personen" required>
     </div>
 
     <button type="submit" class="submit-button">Send Message</button>
   </form>
 </div>
+
+<script>
+  const form = document.getElementById('modern-form');
+
+  form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Voorkom herladen van de pagina
+
+      // Verzend formuliergegevens via Fetch API
+      const formData = new FormData(form);
+      const response = await fetch('http://localhost:5000/submit', {
+          method: 'POST',
+          body: formData,
+      });
+
+      const result = await response.json();
+      if (result.status === 'success') {
+          alert('Je gegevens zijn opgeslagen!');
+      } else {
+          alert('Er ging iets mis. Probeer het opnieuw.');
+      }
+  });
+</script>
 </body>
 </html>
