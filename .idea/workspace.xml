@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18cf853b-1bf6-4ed1-8d04-ebebd83a35ac" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Event.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Event.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excel/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Excel/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Styles/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,9 +28,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2pfcTNHy04uiLp8lmgdH3qlxykF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -46,6 +50,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -64,7 +69,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733160576544</updated>
-      <workItem from="1733160577594" duration="3041000" />
+      <workItem from="1733160577594" duration="4291000" />
+      <workItem from="1733172356126" duration="449000" />
     </task>
     <servers />
   </component>
