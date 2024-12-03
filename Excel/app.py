@@ -15,10 +15,10 @@ def submit_form():
         # Get form data
         name = request.form.get('name')
         email = request.form.get('email')
-        subject = request.form.get('subject')
+        personen = request.form.get('personen')
 
         # Check if form fields are not empty
-        if not name or not email or not subject:
+        if not name or not email or not personen:
             return jsonify({"status": "error", "message": "Alle velden moeten worden ingevuld!"})
 
         # Define the file path
@@ -32,13 +32,13 @@ def submit_form():
             wb = Workbook()
             sheet = wb.active
             # Add headers for a new workbook
-            sheet.append(["Name", "Email", "Subject"])
+            sheet.append(["Name", "Email", "Personen"])
 
         # Get the active sheet
         sheet = wb.active
 
         # Append data as a new row
-        sheet.append([name, email, subject])
+        sheet.append([name, email, personen])
         wb.save(file_path)
 
         return jsonify({"status": "success", "message": "Data opgeslagen!"})
