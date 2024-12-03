@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="18cf853b-1bf6-4ed1-8d04-ebebd83a35ac" name="Changes" comment="" />
+=======
+    <list default="true" id="18cf853b-1bf6-4ed1-8d04-ebebd83a35ac" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +42,10 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+<<<<<<< Updated upstream
+=======
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+>>>>>>> Stashed changes
     &quot;disable.download.node.interpreter.editor.notification&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Alessio/Documents/GitHub/Event&quot;,
@@ -70,6 +80,12 @@
       <workItem from="1733174940971" duration="334000" />
       <workItem from="1733175328273" duration="117000" />
       <workItem from="1733175455001" duration="108000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1733177489980" duration="806000" />
+      <workItem from="1733178606770" duration="354000" />
+      <workItem from="1733211053921" duration="182000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
