@@ -19,7 +19,7 @@
             <input type="email" id="email" name="email" placeholder="Je e-mailadres" required>
         </div>
         <div class="form-group">
-            <label for="subject">Personen:</label>
+            <label for="personen">Personen:</label>
             <input type="number" id="personen" name="personen" placeholder="Aantal personen" required>
         </div>
         <button type="submit" class="submit-button">Send Message</button>
@@ -54,11 +54,11 @@
         const formData = new FormData(form);
 
         try {
-            // Send data to the server
             const response = await fetch('http://localhost:5000/submit', {
                 method: 'POST',
                 body: formData,
             });
+
 
             const result = await response.json();
 
