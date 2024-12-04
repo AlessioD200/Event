@@ -10,18 +10,49 @@
 <div class="form-wrapper">
     <form id="modern-form" class="modern-form">
         <h2>Vul je gegevens in</h2>
+
         <div class="form-group">
-            <label for="name">Naam:</label>
-            <input type="text" id="name" name="name" placeholder="Je naam" required>
+            <label for="name">Naam/Voornaam:</label>
+            <input type="text" id="name" name="name" placeholder="Je naam en voornaam" required>
         </div>
+
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Je e-mailadres" required>
         </div>
+
         <div class="form-group">
-            <label for="subject">Personen:</label>
+            <label for="voertuigen">Voertuigen:</label>
+            <input type="number" id="voertuigen" name="voertuigen" placeholder="aantal voertuigen" required>
+        </div>
+
+        <div class="form-group">
+            <label for="personen">Personen:</label>
             <input type="number" id="personen" name="personen" placeholder="Aantal personen" required>
         </div>
+
+        <div class="form-group">
+            <label for="adres">Adres:</label>
+            <input type="text" id="adres" name="adres" placeholder="Je adres" required>
+        </div>
+
+        <div class="form-group">
+            <label for="gsm">GSM:</label>
+            <input type="tel" id="gsm" name="gsm" placeholder="Je gsm-nummer" required>
+        </div>
+
+        <div class="form-group">
+            <label for="merk_voertuig">Merk voertuig:</label>
+            <input type="text" id="merk_voertuig" name="merk_voertuig" placeholder="Voertuigmerk" />
+        </div>
+        
+        
+
+        <div class="form-group">
+            <label for="nr_plaat">Nummerplaat:</label>
+            <input type="text" id="nr_plaat" name="nr_plaat" placeholder="Nummerplaat" required>
+        </div>
+
         <button type="submit" class="submit-button">Send Message</button>
     </form>
 </div>
@@ -101,7 +132,6 @@
             errorBox.classList.add('hidden');
         }, 3000);
     }
-
 </script>
 </body>
 </html>
