@@ -4,8 +4,6 @@ import os
 from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
-
-# Enable CORS for all routes (you can restrict this to certain origins if needed)
 CORS(app)
 
 # Route for receiving form data
@@ -19,11 +17,11 @@ def submit_form():
         personen = request.form.get('personen')
         adres = request.form.get('adres')
         gsm = request.form.get('gsm')
-        merk_voertuig = request.form.get('merk_voertuig')  # Updated field name
+        merk_voertuig = request.form.get('merk_voertuig')
         nr_plaat = request.form.get('nr_plaat')
 
         # Check if required fields are filled
-        if not name or not email or not personen or not merk_voertuig:
+        if not name or not email or not personen or not nr_plaat:
             return jsonify({"status": "error", "message": "Alle velden moeten worden ingevuld!"})
 
         # Define file path
@@ -52,4 +50,4 @@ def submit_form():
         return jsonify({"status": "error", "message": f"Er ging iets mis: {str(e)}"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)

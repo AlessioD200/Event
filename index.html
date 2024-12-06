@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label for="voertuigen">Voertuigen:</label>
-            <input type="number" id="voertuigen" name="voertuigen" placeholder="aantal voertuigen" required>
+            <input type="number" id="voertuigen" name="voertuigen" placeholder="Aantal voertuigen" required>
         </div>
 
         <div class="form-group">
@@ -46,8 +46,6 @@
             <input type="text" id="merk_voertuig" name="merk_voertuig" placeholder="Voertuigmerk" />
         </div>
         
-        
-
         <div class="form-group">
             <label for="nr_plaat">Nummerplaat:</label>
             <input type="text" id="nr_plaat" name="nr_plaat" placeholder="Nummerplaat" required>
@@ -86,7 +84,7 @@
 
         try {
             // Send data to the server
-            const response = await fetch('http://localhost:5000/submit', {
+            const response = await fetch('/submit', {
                 method: 'POST',
                 body: formData,
             });
