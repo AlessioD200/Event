@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="form-wrapper">
-    <form id="modern-form" class="modern-form">
+    <form id="modern-form" class="modern-form" action="/submit" method="POST">
         <h2>Vul je gegevens in</h2>
 
         <div class="form-group">
@@ -84,7 +84,7 @@
 
         try {
             // Send data to the server
-            const response = await fetch('/submit', {
+            const response = await fetch('http://127.0.0.1:5000/submit', {
                 method: 'POST',
                 body: formData,
             });
