@@ -19,7 +19,10 @@ def submit_form():
         gsm = request.form.get('gsm')
         merk_voertuig = request.form.get('merk_voertuig')
         nr_plaat = request.form.get('nr_plaat')
-
+        return f"Data ontvangen: {name}, {email}, {voertuigen}, {personen}, {adres}, {gsm}, {merk_voertuig}, {nr_plaat}"
+        print(request.form)
+        return "Formulier succesvol verzonden!"
+        
         # Check if required fields are filled
         if not name or not email or not personen or not nr_plaat:
             return jsonify({"status": "error", "message": "Alle velden moeten worden ingevuld!"})
