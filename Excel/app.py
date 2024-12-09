@@ -5,7 +5,7 @@ from openpyxl import load_workbook
 app = Flask(__name__)
 
 # Path to your Excel file
-EXCEL_FILE = '/home/pi/OneDrive/Excel/data.xlsx'
+EXCEL_FILE = '\Alessio\Documents\GitHub\Event\Excel\data.xlsx'
 
 @app.route('/')
 def index():
