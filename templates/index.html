@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plannen</title>
-    <link rel="stylesheet" href="static/Styles/styles.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='Styles/styles.css') }}">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N3512SBF5N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-N3512SBF5N');
+    </script>
 </head>
 <body>
 <div class="form-wrapper">
@@ -56,6 +64,7 @@
     </form>
 </div>
 
+<!-- Success Box -->
 <div id="success-box" class="success-box hidden">
     <p class="success-message">Je gegevens zijn succesvol opgeslagen!</p>
 </div>
@@ -64,6 +73,7 @@
     const form = document.getElementById('modern-form');
     const successBox = document.getElementById('success-box');
 
+    // Create error box dynamically
     const errorBox = document.createElement('div');
     errorBox.id = 'error-box';
     errorBox.className = 'hidden error-box';
@@ -73,17 +83,22 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault(); // Prevent page reload
 
+        // Show "Sending..." animation on the button
         const submitButton = e.target.querySelector('.submit-button');
         submitButton.textContent = 'Sending...';
         submitButton.disabled = true;
 
+        // Gather form data
         const formData = new FormData(form);
 
         try {
-            const response = await fetch('/submit', {
-                method: 'POST',
-                body: formData,
-            });
+            // Send data to the server
+        const response = await fetch('/submit', {
+        method: 'POST',
+        body: formData,
+        });
+
+
 
             const result = await response.json();
 

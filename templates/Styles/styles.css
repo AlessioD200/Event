@@ -1,0 +1,135 @@
+body {
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    min-height: 100vh; /* Allow the page height to grow */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align form at the top */
+    width: 100%;
+    padding: 20px; /* Add spacing around form */
+    box-sizing: border-box; /* Ensure padding doesn't increase element size */
+}
+
+.modern-form {
+    background: #ffffff;
+    padding: 20px 25px; /* Adjust padding for better spacing */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn't increase width */
+}
+
+.modern-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px; /* Adjust margin */
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 6px;
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%; /* Ensure the input stays within its container */
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Prevent padding from causing overflow */
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.submit-button {
+    width: 100%; /* Ensure the button spans the full width of its container */
+    padding: 12px 0;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Prevent padding from causing overflow */
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.success-box, .error-box {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 0;
+    transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+.success-box {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.error-box {
+    background-color: #F44336;
+    color: white;
+}
+
+.success-box.slide-in, .error-box.slide-in {
+    top: 20px;
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .modern-form {
+        padding: 15px;
+    }
+
+    .form-group input {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .submit-button {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+}
